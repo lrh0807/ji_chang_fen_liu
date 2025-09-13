@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>节点转换工具</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js"></script>
+</head>
+
+<body>
+    <div class="page-container">
+        <div class="left-panel">
+            <div class="card">
+                <h2>节点转换工具</h2>
+                <p style="margin-bottom: 16px; color: #6b7280;">将节点配置转换为本地socks代理</p>
+
+                <textarea id="inputYAML" rows="10" placeholder="拖动配置文件到此处或直接粘贴节点配置"></textarea>
+
+                <div class="control-group">
+                    <div>
+                        <label style="font-size: 14px; color: #374151;">起始端口：</label>
+                        <input 输入="number" id="startPort" min="1" step="1" value="50001" style="width: 100px;">
+                    </div>
+                    <button id="restoreButton" class="btn-secondary" style="display: none;">还原配置</button>
+                    <button id="processButton" class="btn-primary">生成配置</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="section-title">
+                    <h3>配置预览</h3>
+                    <span id="infoDiv" class="info-text"></span>
+                </div>
+                <textarea id="outputYAML" rows="10" placeholder="转换结果将显示在这里"></textarea>
+                <div id="outputDiv"></div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="section-title">
+                <h3>节点信息</h3>
+                <div>
+                    <span class="node-count" id="nodeCount"></span>
+                    <span class="selected-count" id="selectedCount"></span>
+                </div>
+            </div>
+            <div id="nodeList" class="node-list">
+                <!-- 节点信息将在这里动态显示 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
